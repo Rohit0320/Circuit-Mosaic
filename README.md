@@ -16,7 +16,7 @@ project-folder/
 │── index.html              # Main portal file
 │── /certificates/          # Folder containing certificates (PDF/PNG)
 │   ├── Aditya-Jadhav.pdf
-│   ├── Vivaan-Patel.png
+│   ├── Nitin Gupta.png
 │   └── ...
 │── /assets/                # (optional) images, logos, CSS
 ```
@@ -34,8 +34,8 @@ project-folder/
 ```js
 const participants = [
   { id: 1, name: "Aditya Jadhav", certificateUrl: "certificates/Aditya-Jadhav.pdf" },
-  { id: 2, name: "Vivaan Patel", certificateUrl: "certificates/Vivaan-Patel.png" },
-  { id: 3, name: "Aditya Singh", certificateUrl: "certificates/Aditya-Singh.pdf" }
+  { id: 2, name: "Nitin Gupta", certificateUrl: "certificates/Nitin-Gupta.png" },
+  { id: 3, name: "Aryan Chauhan", certificateUrl: "certificates/Aryan-Chauhan.pdf" }
 ];
 ```
 
