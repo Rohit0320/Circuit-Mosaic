@@ -26,16 +26,16 @@ project-folder/
 1. Place all participant certificates inside the **`certificates/`** folder.  
    - Supported formats: `.pdf`, `.png`, `.jpg`  
    - Example filenames:  
-     - `Aditya-Jadhav.pdf`  
-     - `Vivaan-Patel.png`  
+     - `Aditya-Jadhav.png`  
+     - `Nitin Gupta.png`  
 
 2. Open **`index.html`** and update the **participants array** in the script:  
 
 ```js
 const participants = [
-  { id: 1, name: "Aditya Jadhav", certificateUrl: "certificates/Aditya-Jadhav.pdf" },
+  { id: 1, name: "Aditya Jadhav", certificateUrl: "certificates/Aditya-Jadhav.png" },
   { id: 2, name: "Nitin Gupta", certificateUrl: "certificates/Nitin-Gupta.png" },
-  { id: 3, name: "Aryan Chauhan", certificateUrl: "certificates/Aryan-Chauhan.pdf" }
+  { id: 3, name: "Aryan Chauhan", certificateUrl: "certificates/Aryan-Chauhan.png" }
 ];
 ```
 
