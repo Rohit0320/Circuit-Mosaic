@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Circuit Mosaic - Certificate Portal</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Enhanced Header Styles */
+        header {
+            background: linear-gradient(135deg, #1a2a6c, #2a3a7c);
+            color: white;
+            padding: 20px 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .college-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .college-logo {
+            height: 70px;
+            width: 70px;
+            border-radius: 50%;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        .college-logo i {
+            font-size: 32px;
+            color: #1a2a6c;
+        }
+        
+        .college-text h1 {
+            font-size: 28px;
+            margin-bottom: 5px;
+            font-weight: 700;
+        }
+        
+        .college-text p {
+            font-size: 16px;
+            color: #e0e0e0;
+        }
+        
+        .event-date {
+            text-align: right;
+        }
+        
+        .event-date p {
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+        
+        .event-date h3 {
+            font-size: 22px;
+            color: #ffcc00;
+        }
+        
+        .header-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 15px;
+        }
+        
+        .iic-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .iic-logo {
+            height: 60px;
+            width: 60px;
+            border-radius: 50%;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        .iic-logo i {
+            font-size: 28px;
+            color: #1a2a6c;
+        }
+        
+        .iic-text h2 {
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+        
+        .iic-text p {
+            font-size: 14px;
+            color: #e0e0e0;
+        }
+        
+        .header-decoration {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 200px;
+            height: 200px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+            transform: translate(30%, -30%);
+        }
+        
+        .header-decoration-2 {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 150px;
+            height: 150px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+            transform: translate(-30%, 30%);
+        }
+        
+        /* Main Content Styles */
+        .main-content {
+            padding: 40px 0;
+        }
+        
+        .event-section {
+            background-color: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+            margin-bottom: 30px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .event-title {
+            color: #1a2a6c;
+            font-size: 32px;
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .event-title:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 10%;
+            width: 80%;
+            height: 3px;
+            background: linear-gradient(to right, #1a2a6c, #2a3a7c);
+            border-radius: 3px;
+        }
+        
+        .event-description {
+            color: #555;
+            font-size: 18px;
+            max-width: 800px;
+            margin: 0 auto 25px;
+        }
+        
+        .event-highlights {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 25px;
+            flex-wrap: wrap;
+        }
+        
+        .highlight {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 200px;
+        }
+        
+        .highlight-icon {
+            background: #1a2a6c;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 10px;
+        }
+        
+        .highlight-icon i {
+            font-size: 24px;
+        }
+        
+        .highlight-text {
+            text-align: center;
+            font-size: 14px;
+            color: #555;
+        }
+        
+        /* Search Section */
+        .search-section {
+            background-color: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+            margin-bottom: 30px;
+        }
+        
+        .search-title {
+            color: #1a2a6c;
+            font-size: 24px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .search-container {
+            display: flex;
+            max-width: 600px;
+            margin: 0 auto;
+            gap: 10px;
+        }
+        
+        .search-input {
+            flex: 1;
+            padding: 12px 20px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+        
+        .search-input:focus {
+            border-color: #1a2a6c;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(26, 42, 108, 0.2);
+        }
+        
+        .search-button {
+            background: linear-gradient(135deg, #1a2a6c, #2a3a7c);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 12px 25px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .search-button:hover {
+            background: linear-gradient(135deg, #2a3a7c, #3a4a8c);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Results Section */
+        .results-section {
+            background-color: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+            display: none;
+        }
+        
+        .results-title {
+            color: #1a2a6c;
+            font-size: 24px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .participant-list {
+            list-style-type: none;
+            max-height: 400px;
+            overflow-y: auto;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 10px;
+        }
+        
+        .participant-item {
+            padding: 12px 15px;
+            border-bottom: 1px solid #f0f0f0;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .participant-item:hover {
+            background-color: #f8f9fa;
+            border-left: 4px solid #1a2a6c;
+        }
+        
+        .participant-item:last-child {
+            border-bottom: none;
+        }
+        
+        .participant-name {
+            font-weight: 500;
+        }
+        
+        .download-btn {
+            background-color: #1a2a6c;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            padding: 6px 12px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .download-btn:hover {
+            background-color: #2a3a7c;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #1a2a6c;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 40px;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .footer-logo i {
+            font-size: 24px;
+            color: #ffcc00;
+        }
+        
+        .contact-info {
+            text-align: right;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-top, .header-bottom {
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
+            }
+            
+            .college-info, .iic-info {
+                justify-content: center;
+            }
+            
+            .event-date {
+                text-align: center;
+            }
+            
+            .search-container {
+                flex-direction: column;
+            }
+            
+            .event-title {
+                font-size: 26px;
+            }
+            
+            .event-description {
+                font-size: 16px;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .contact-info {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Enhanced Header Section -->
+    <header>
+        <div class="header-decoration"></div>
+        <div class="header-decoration-2"></div>
+        <div class="container">
+            <div class="header-top">
+                <div class="college-info">
+                    <div class="college-logo">
+                        <!-- <i class="fas fa-university"></i> -->
+                         <img src="assets/TSEC-Logo.png" alt="" height="48px">
+                    </div>
+                    <div class="college-text">
+                        <h1>Thakur Shyamnarayan Engineering College</h1>
+                        <p>Empowering Engineers for a Better Tomorrow</p>
+                    </div>
+                </div>
+                <div class="event-date">
+                    <p>Event Date</p>
+                    <h3>September 12, 2025</h3>
+                </div>
+            </div>
+            
+            <div class="header-bottom">
+                <div class="iic-info">
+                    <div class="iic-logo">
+                        <img src="assets/iic_logo.png" alt="" height="50px">
+                    </div>
+                    <div class="iic-text">
+                        <h2>Institution's Innovation Council (IIC)</h2>
+                        <p>Ministry of Education, Government of India</p>
+                    </div>
+                </div>
+                
+                <!-- <div class="header-actions">
+                    <button class="search-button">
+                        <i class="fas fa-home"></i> Home
+                    </button>
+                </div> -->
+            </div>
+        </div>
+    </header>
+    
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="container">
+            <!-- Event Section -->
+            <section class="event-section">
+                <h2 class="event-title">Circuit Mosaic</h2>
+                <p class="event-description">
+                    Circuit Mosaic was a thrilling three-round electronics competition that combined strategy, design, and hands-on skills. In the first round, teams used 1500 virtual points to bid for essential circuit components in an exciting auction. The second round challenged participants to design accurate circuit diagrams using their acquired parts, testing their creativity and technical understanding. In the final round, teams brought their ideas to life by assembling and testing real circuits, showcasing their practical knowledge and problem-solving abilities.
+                </p>
+                <p class="event-description">
+                    Search for your name below to download your certificate of participation.
+                </p>
+                
+                <div class="event-highlights">
+                    <!-- <div class="highlight">
+                        <div class="highlight-icon">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <div class="highlight-text">
+                            <strong>Prizes Worth ₹50,000</strong>
+                            <p>For top 3 teams</p>
+                        </div>
+                    </div> -->
+                    <div class="highlight">
+                        <div class="highlight-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="highlight-text">
+                            <strong>50+ Participants</strong>
+                            <p>Intra College Event</p>
+                        </div>
+                    </div>
+                    <div class="highlight">
+                        <div class="highlight-icon">
+                            <i class="fas fa-certificate"></i>
+                        </div>
+                        <div class="highlight-text">
+                            <strong>Certificates for All</strong>
+                            <p>Participants & Winners</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Search Section -->
+            <section class="search-section">
+                <h3 class="search-title">Search for Your Certificate</h3>
+                <div class="search-container">
+                    <input type="text" class="search-input" placeholder="Enter your name..." id="searchInput">
+                    <button class="search-button" id="searchButton">
+                        <i class="fas fa-search"></i> Search
+                    </button>
+                </div>
+            </section>
+            
+            <!-- Results Section -->
+            <section class="results-section" id="resultsSection">
+                <h3 class="results-title">Search Results</h3>
+                <ul class="participant-list" id="participantList">
+                    <!-- Results will be populated by JavaScript -->
+                </ul>
+            </section>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <i class="fas fa-graduation-cap"></i>
+                    <span>Thakur Shyamnarayan Engineering College</span>
+                </div>
+                <div class="contact-info">
+                    <p>Email: iic@tsecmumbai.in | Phone: +91-7021677107</p>
+                    <p>© 2025 All Rights Reserved</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Sample participant data
+        const participants = [
+            { id: 1, name: "Aditya Jadhav", certificateUrl: "certificates/2.png" },
+            { id: 2, name: "Nitin Gupta", certificateUrl: "certificates/3.png" },
+            { id: 3, name: "Aryan Chauhan", certificateUrl: "certificates/4.png" },
+            { id: 4, name: "Bharat Patel", certificateUrl: "certificates/5.png" },
+            { id: 5, name: "Yusuf Sheikh", certificateUrl: "certificates/6.png" },
+            { id: 6, name: "Shreyansh Gupta", certificateUrl: "certificates/7.png" },
+            { id: 7, name: "Siddhant Nikalje", certificateUrl: "certificates/8.png" },
+            { id: 8, name: "Aryan Singh", certificateUrl: "certificates/9.png" },
+            { id: 9, name: "Swayam Patel", certificateUrl: "certificates/10.png" },
+            { id: 10, name: "Neel Bhogle", certificateUrl: "certificates/11.png" },
+            { id: 11, name: "Vedang Ghadge", certificateUrl: "certificates/12.png" },
+            { id: 12, name: "Harsh Agrawal", certificateUrl: "certificates/13.png" },
+            { id: 13, name: "Sairaj Khanvilkar", certificateUrl: "certificates/14.png" },
+            { id: 14, name: "Mohammed Aaruf Akram Khan", certificateUrl: "certificates/15.png" },
+            { id: 15, name: "Pranjal Parab", certificateUrl: "certificates/16.png" },
+            { id: 16, name: "Veer Desai", certificateUrl: "certificates/17.png" },
+            { id: 17, name: "Hetanshu Mistry", certificateUrl: "certificates/18.png" },
+            { id: 18, name: "Pavit Lakhani", certificateUrl: "certificates/19.png" },
+            { id: 19, name: "Dilip Kumar Choudhary", certificateUrl: "certificates/20.png" },
+            { id: 20, name: "Shravan Chafekar", certificateUrl: "certificates/21.png" },
+            { id: 21, name: "Abur Rahman Ransariya", certificateUrl: "certificates/22.png" },
+            { id: 22, name: "Tanvi Shinde", certificateUrl: "certificates/23.png" },
+            { id: 23, name: "Pratik Nagrale", certificateUrl: "certificates/24.png" },
+            { id: 24, name: "Kairavi Mhatre", certificateUrl: "certificates/25.png" },
+            { id: 25, name: "Kaushal Kawali", certificateUrl: "certificates/26.png" },
+            { id: 26, name: "Rishita Sakharkar", certificateUrl: "certificates/27.png" },
+            { id: 27, name: "Pratik Patil", certificateUrl: "certificates/28.png" },
+            { id: 28, name: "Varun Jha", certificateUrl: "certificates/29.png" },
+            { id: 29, name: "Aarush Kadam", certificateUrl: "certificates/30.png" },
+            { id: 30, name: "Yash Gupta", certificateUrl: "certificates/31.png" },
+            { id: 31, name: "#", certificateUrl: "#" } // Certificate not available
+        ];
+        
+        // DOM Elements
+        const searchInput = document.getElementById('searchInput');
+        const searchButton = document.getElementById('searchButton');
+        const resultsSection = document.getElementById('resultsSection');
+        const participantList = document.getElementById('participantList');
+        
+        // Search functionality
+        searchButton.addEventListener('click', performSearch);
+        searchInput.addEventListener('keyup', function(event) {
+            if (event.key === 'Enter') {
+                performSearch();
+            }
+        });
+        
+        function performSearch() {
+            const searchTerm = searchInput.value.trim().toLowerCase();
+            
+            if (searchTerm === '') {
+                alert('Please enter a name to search.');
+                return;
+            }
+            
+            // Filter participants based on search term
+            const filteredParticipants = participants.filter(participant => 
+                participant.name.toLowerCase().includes(searchTerm)
+            );
+            
+            // Display results
+            displayResults(filteredParticipants);
+        }
+        
+        function displayResults(results) {
+            // Clear previous results
+            participantList.innerHTML = '';
+            
+            if (results.length === 0) {
+                participantList.innerHTML = '<li class="participant-item">No participants found with that name.</li>';
+            } else {
+                results.forEach(participant => {
+                    const listItem = document.createElement('li');
+                    listItem.className = 'participant-item';
+                    listItem.innerHTML = `
+                        <span class="participant-name">${participant.name}</span>
+                        <button class="download-btn" data-id="${participant.id}">
+                            <i class="fas fa-download"></i> Download Certificate
+                        </button>
+                    `;
+                    participantList.appendChild(listItem);
+                });
+                
+                // Add event listeners to download buttons
+                document.querySelectorAll('.download-btn').forEach(button => {
+                    button.addEventListener('click', function() {
+                        const participantId = this.getAttribute('data-id');
+                        downloadCertificate(participantId);
+                    });
+                });
+            }
+            
+            // Show results section
+            resultsSection.style.display = 'block';
+            
+            // Scroll to results
+            resultsSection.scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        // function downloadCertificate(participantId) {
+            // In a real implementation, this would fetch the actual PDF
+            // For this demo, we'll just show an alert
+            // const participant = participants.find(p => p.id == participantId);
+            // alert(`Downloading certificate for ${participant.name}. In a real implementation, this would download the PDF.`);
+            
+            // In a real implementation, you would do something like:
+        //     window.open(participant.certificateUrl, '_blank');
+        // }
+        function downloadCertificate(participantId) {
+        const participant = participants.find(p => p.id == participantId);
+        if (participant && participant.certificateUrl !== "#") {
+            const link = document.createElement('a');
+            link.href = participant.certificateUrl;
+            link.download = participant.certificateUrl.split('/').pop(); // forces download
+            link.click();
+        } else {
+            alert("Certificate not available yet.");
+        }
+}
+
+    </script>
+</body>
+</html>
